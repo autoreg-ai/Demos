@@ -1,0 +1,16 @@
+{
+  "name": "goodcart-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "deploy": "npx --yes vercel@60.1.3 deploy --prod --yes"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
