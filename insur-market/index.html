@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9ed">
+  <meta name="description" content="Coverly is a shopping protection demo. Explore sample coverage, calculate a quote, and manage demo plans.">
+  <title>Coverly — feel good about the things you buy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="demo-strip">A shopping protection concept · Illustrative prices and coverage · No real policy is issued</div>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Coverly home"><span class="mark" aria-hidden="true"><span></span></span>coverly<span class="wordmark-dot">.</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#coverage">What's covered</a>
+      <a href="#questions">FAQs</a>
+    </nav>
+    <div class="header-actions"><button class="text-button" id="my-plans-button" type="button">My demo plans <span id="plan-count" class="count-badge" hidden>0</span></button><a class="nav-cta" href="#quote">Get a quote <span aria-hidden="true">↗</span></a></div>
+  </header>
+
+  <main id="home">
+    <section class="hero section-wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> SHOP SMARTER, STRESS LESS</div>
+        <h1 id="hero-title">Feel good about<br>the things you <em>buy.</em></h1>
+        <p class="hero-description">From the tech you use every day to the little things that make a house feel like home, explore protection that fits your purchase.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#quote">Explore your options <span aria-hidden="true">↗</span></a><a class="underlined-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-note"><span class="check-icon">✓</span> Simple sample pricing <span class="dot-separator">·</span> No payment details</div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of protected shopping purchases" role="img">
+        <div class="visual-orbit orbit-outer"></div><div class="visual-orbit orbit-inner"></div>
+        <div class="object-card headphones"><div class="headphone-band"></div><div class="headphone-cup left"></div><div class="headphone-cup right"></div></div>
+        <div class="object-card camera"><div class="camera-top"></div><div class="camera-body"><div class="camera-lens"></div><div class="camera-flash"></div></div></div>
+        <div class="shield-card"><div class="shield-shape"><span>✓</span></div></div>
+        <div class="floating-label label-top"><span class="label-icon">✦</span><span>Good things,<br><strong>covered.</strong></span></div>
+        <div class="floating-label label-bottom"><span class="status-dot"></span> Peace of mind, added</div>
+        <span class="hero-spark spark-one" aria-hidden="true">✳</span><span class="hero-spark spark-two" aria-hidden="true">✳</span>
+      </div>
+    </section>
+
+    <div class="trust-row section-wrap" aria-label="Key benefits"><div><span class="trust-icon">✳</span><span>Plans that fit your purchase</span></div><div><span class="trust-icon">✓</span><span>Clear sample coverage</span></div><div><span class="trust-icon">↗</span><span>Everything in one place</span></div></div>
+
+    <section id="quote" class="quote-section section-wrap" aria-labelledby="quote-title">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE EASY PART</div><h2 id="quote-title">Let's cover your<br><em>new favorite thing.</em></h2></div><p>Pick what you bought and tell us the price. We'll show you two sample ways to protect it.</p></div>
+      <div class="quote-layout">
+        <form class="quote-form panel" id="quote-form">
+          <div class="step-caption"><span>01</span> ABOUT YOUR PURCHASE</div>
+          <label class="field-label" for="category">What did you buy?</label>
+          <div class="category-grid" id="category-options" role="group" aria-label="Purchase category">
+            <button class="category-option selected" type="button" data-category="Electronics" aria-pressed="true"><span class="category-icon">⌁</span><span>Electronics</span></button>
+            <button class="category-option" type="button" data-category="Appliances" aria-pressed="false"><span class="category-icon">▣</span><span>Appliances</span></button>
+            <button class="category-option" type="button" data-category="Home goods" aria-pressed="false"><span class="category-icon">⌂</span><span>Home goods</span></button>
+            <button class="category-option" type="button" data-category="Other" aria-pressed="false"><span class="category-icon">✧</span><span>Other</span></button>
+          </div>
+          <input type="hidden" id="category" name="category" value="Electronics">
+          <label class="field-label price-label" for="purchase-price">How much did it cost?</label>
+          <div class="price-input"><span aria-hidden="true">$</span><input id="purchase-price" name="price" type="number" inputmode="decimal" min="25" max="5000" step="0.01" value="350" required aria-describedby="price-help"><span class="price-suffix">USD</span></div>
+          <p class="field-help" id="price-help">Enter a purchase price from $25 to $5,000.</p>
+          <div class="term-row"><div><span class="field-label">How long?</span><span class="term-help">Sample plan length</span></div><div class="segmented" role="group" aria-label="Coverage term"><button type="button" class="term-button selected" data-term="1" aria-pressed="true">1 year</button><button type="button" class="term-button" data-term="2" aria-pressed="false">2 years</button></div></div>
+          <p class="quote-error" id="quote-error" role="alert" hidden></p>
+        </form>
+        <div class="plan-area" aria-live="polite">
+          <div class="plan-intro"><span class="step-caption"><span>02</span> CHOOSE YOUR FIT</span><span class="plan-intro-note">One-time sample price</span></div>
+          <div class="plan-cards" id="plan-cards"></div>
+          <p class="plan-disclaimer">Demo estimates only. Terms, eligibility, exclusions, and pricing would require a licensed provider. No coverage begins here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-section" aria-labelledby="how-title"><div class="section-wrap"><div class="section-heading light"><div><div class="eyebrow"><span class="eyebrow-line"></span> MADE FOR REAL LIFE</div><h2 id="how-title">A little backup goes<br><em>a long way.</em></h2></div><p>The demo journey is designed to be straightforward, from a quick estimate to one place to keep track of your plans.</p></div><div class="steps-grid"><article><span class="step-number">01 /</span><div class="step-art art-bag"><span>▱</span><i>✦</i></div><h3>Tell us what you bought</h3><p>Choose a category, enter your purchase price, and see sample options right away.</p></article><article><span class="step-number">02 /</span><div class="step-art art-plan"><span>▤</span><i>✓</i></div><h3>Choose your fit</h3><p>Compare a simple plan with a more comprehensive example side by side.</p></article><article><span class="step-number">03 /</span><div class="step-art art-heart"><span>♡</span><i>✳</i></div><h3>Keep it all together</h3><p>Save a demo plan in this browser and try the sample claim flow whenever you like.</p></article></div></div></section>
+
+    <section id="coverage" class="coverage-section section-wrap" aria-labelledby="coverage-title"><div class="coverage-art"><div class="coverage-card"><span class="mini-label">YOUR THINGS, IN GOOD HANDS</span><div class="coverage-card-icon">✳</div><div class="coverage-card-title">A little more<br>peace of mind.</div><div class="coverage-card-bar"><span></span><span></span><span></span></div></div><span class="coverage-art-sticker">made for<br>the moments<br>that matter ↗</span></div><div class="coverage-copy"><div class="eyebrow"><span class="eyebrow-line"></span> KNOW WHAT TO EXPECT</div><h2 id="coverage-title">The details<br><em>matter.</em></h2><p>Protection should be easy to understand. This concept shows how coverage could be explained before someone commits.</p><div class="coverage-list"><div><span>01</span><div><h3>Accidental damage</h3><p>See how drops and spills might be handled under a sample Plus plan.</p></div><span aria-hidden="true">↗</span></div><div><span>02</span><div><h3>Mechanical breakdown</h3><p>Explore example protection for eligible failures after a manufacturer warranty.</p></div><span aria-hidden="true">↗</span></div><div><span>03</span><div><h3>Clear exclusions</h3><p>Understand that loss, theft, and existing damage are outside this demo's sample scope.</p></div><span aria-hidden="true">↗</span></div></div><a class="underlined-link" href="#quote">Explore sample plans <span aria-hidden="true">↗</span></a></div></section>
+
+    <section class="banner-section section-wrap"><div><span class="eyebrow">A GOOD THING TO HAVE</span><h2>More joy in the purchase.<br><em>Less worry after.</em></h2></div><a class="button button-light" href="#quote">Get your sample quote <span aria-hidden="true">↗</span></a><span class="banner-flower" aria-hidden="true">✳</span></section>
+
+    <section id="questions" class="faq-section section-wrap" aria-labelledby="faq-title"><div><div class="eyebrow"><span class="eyebrow-line"></span> GOOD TO KNOW</div><h2 id="faq-title">A few things<br><em>you might ask.</em></h2><p>This is a concept app, so the answers explain how this demo behaves.</p></div><div class="faq-list"><details><summary>Is this real insurance?<span>+</span></summary><p>No. Coverly is a fictional product demo. Prices and coverage examples are illustrative, and saving a plan does not create insurance coverage.</p></details><details><summary>Will I be charged?<span>+</span></summary><p>No. This demo has no checkout, payment processing, or billing.</p></details><details><summary>Where are my demo plans saved?<span>+</span></summary><p>Plans and sample claims are saved only in this browser's local storage. Clearing browser data removes them.</p></details><details><summary>Can I make a real claim here?<span>+</span></summary><p>No. The claim form demonstrates an interface only. It does not send information to an insurer or start a real claim.</p></details></div></section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap footer-inner"><div><a class="wordmark" href="#home"><span class="mark" aria-hidden="true"><span></span></span>coverly<span class="wordmark-dot">.</span></a><p>Feel good about the things you buy.</p></div><div class="footer-links"><a href="#how-it-works">How it works</a><a href="#coverage">Coverage</a><a href="#questions">FAQs</a></div><div class="footer-bottom"><span>© 2026 Coverly concept</span><span>Illustrative demo · No insurance or payment processing</span></div></div></footer>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden></div>
+  <section class="modal" id="enroll-modal" role="dialog" aria-modal="true" aria-labelledby="enroll-title" hidden><button class="modal-close" type="button" data-close aria-label="Close">×</button><div class="modal-content"><span class="eyebrow">YOUR DEMO PLAN</span><h2 id="enroll-title">Make it yours<span class="accent-dot">.</span></h2><p class="modal-subtitle">Save a sample plan to your browser and see how a protection dashboard could work.</p><div class="selected-plan" id="selected-plan"></div><form id="enroll-form"><label class="field-label" for="item-name">Name your item</label><input class="text-input" id="item-name" name="itemName" type="text" maxlength="70" placeholder="e.g. My new headphones" required><button class="button button-dark full-button" type="submit">Save demo plan <span aria-hidden="true">↗</span></button></form><p class="modal-footnote">No payment or personal information needed. Saving a plan creates no real coverage.</p></div></section>
+  <section class="modal dashboard-modal" id="dashboard-modal" role="dialog" aria-modal="true" aria-labelledby="dashboard-title" hidden><button class="modal-close" type="button" data-close aria-label="Close">×</button><div class="modal-content"><span class="eyebrow">YOUR COVERLY SPACE</span><h2 id="dashboard-title">My demo plans<span class="accent-dot">.</span></h2><p class="modal-subtitle">Everything saved in this browser, all in one place.</p><div id="dashboard-content"></div></div></section>
+  <section class="modal" id="claim-modal" role="dialog" aria-modal="true" aria-labelledby="claim-title" hidden><button class="modal-close" type="button" data-close aria-label="Close">×</button><div class="modal-content"><span class="eyebrow">A SAMPLE FLOW</span><h2 id="claim-title">Start a demo claim<span class="accent-dot">.</span></h2><p class="modal-subtitle">Try the form to see how a claim might be organized. Nothing is submitted to a provider.</p><form id="claim-form"><input type="hidden" id="claim-policy-id"><label class="field-label" for="claim-reason">What happened?</label><select class="text-input" id="claim-reason" required><option value="" selected disabled>Choose a reason</option><option>Accidental damage</option><option>Mechanical issue</option><option>Other question</option></select><label class="field-label spaced-label" for="claim-description">Tell us a little more</label><textarea class="text-input" id="claim-description" rows="4" minlength="10" maxlength="500" placeholder="Describe what happened in at least 10 characters" required></textarea><button class="button button-dark full-button" type="submit">Save demo claim <span aria-hidden="true">↗</span></button></form><p class="modal-footnote">For demonstration only. No real claim is filed.</p></div></section>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
